@@ -1,0 +1,7 @@
+/* The 🎵 Spotify window (features/spotify/ui.ts): the shared track and the paste row. */
+.sp-now { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.sp-art { width: 72px; height: 72px; flex: none; border-radius: 12px; border: 3px solid var(--ink); object-fit: cover; }
+.sp-paste { display: flex; gap: 8px; }
+.sp-paste input[type=text] { flex: 1; min-width: 0; font: inherit; font-size: 15px; border: 3px solid var(--ink); border-radius: 12px; padding: 10px 12px; background: #fff; outline: none; }
+.sp-paste input[type=text]:focus { border-color: var(--accent); }
+.sp-player { width: 100%; height: 152px; margin-top: 12px; border: 3px solid var(--ink); border-radius: 12px; background: #000; }

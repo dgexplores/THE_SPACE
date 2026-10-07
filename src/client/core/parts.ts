@@ -35,6 +35,7 @@ import type { installJukebox } from '../features/jukebox';
 import type { installMeeting } from '../features/meeting';
 import type { installNeedsYou } from '../features/needsyou';
 import type { installOps } from '../features/ops';
+import type { installSpotify } from '../features/spotify';
 import type { installPeers } from '../features/peers';
 import type { installRooftop } from '../features/rooftop';
 import type { installSeating } from '../features/seating';
@@ -115,6 +116,7 @@ export interface Parts {
   waiting: Made<typeof installWaiting>;
   needsYou: Made<typeof installNeedsYou>;
   ops: Made<typeof installOps>;
+  spotify: Made<typeof installSpotify>;
   meeting: Made<typeof installMeeting>;
   bookshelf: Made<typeof installBookshelf>;
   bar: Made<typeof installBar>;

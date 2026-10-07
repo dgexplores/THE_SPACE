@@ -13,6 +13,7 @@ export const HELP_ROWS: readonly (readonly [string, string])[] = [
   ['🛗', 'Every project is a floor: step into the elevator on the north wall and press E (or click the project name, top left) to go to another one or add a project. It goes down to the garage too, and back up from there'],
   ['🤖', 'An agent stands by the issues board, the PR board and the task queue. Press E at one and type what you want: it runs as an agent that knows that board. O there opens its terminal, X sends it home'],
   ['📊', 'The Ops totem by the services wall: every worker’s task, state, branch, PR and spend, needs-you first. E there (or 📊 Ops in the ☰ menu) opens it, and a row opens that worker’s terminal'],
+  ['🎵', 'The Spotify wall on its totem by the jukebox: one shared track for the floor. E there (or 🎵 Spotify in the ☰ menu) to put a Spotify link up or open it in Spotify and play it'],
   ['📝', 'The whiteboard on wheels between the desks and the lounge: press E to draw on it with everyone on your floor, live. What you draw stays up on the board'],
   ['🕹️', 'The arcade cabinet in the lounge plays BLOCKFALL: arrows (or WASD) move and turn, Space drops, C holds, P pauses. Everyone on the floor sees your game on it, and E there watches whoever is playing. One of your workers needing input pauses it'],
   ['🎉', 'Whenever a pull request merges, the gong next to the PR board rings, confetti rains down all over the floor and every worker gets up on its desk for a quick dance. Walk up to the gong and press E to bang it yourself'],

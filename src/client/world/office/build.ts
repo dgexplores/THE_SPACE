@@ -21,6 +21,7 @@ import type { Collider, DeskView, Interactable, Office, OfficeHandles } from '..
 import { PALETTE, floorTexture, paintPlanks, type Looks } from './materials';
 import { boards, clearOfStairs, lamps, lounge, machineMonitor, nightLights, plants, rugs, tv } from './room';
 import { opsTotem } from './ops-totem';
+import { spotifyTotem } from './spotify-totem';
 import { plug, walls, type Door } from './shell';
 import { balcony } from './balcony';
 import { downstairs } from './ground';
@@ -57,6 +58,7 @@ function floorPlan() {
     tv,
     machineMonitor,
     opsTotem,
+    spotifyTotem,
     lounge,
     jukebox,
     cabinet,
