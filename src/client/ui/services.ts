@@ -47,6 +47,8 @@ export function openServices() {
   let os = guessOs();
   let picked: number | null = null;
   let copied: number | null = null;
+  /** List rows, or live previews: iframes are heavy, so they only exist on this tab. */
+  let view: 'list' | 'previews' = 'list';
   const body = h('div.body.team.services');
   const close = h('button.btn.close', { 'aria-label': 'Close' }, '✕');
   const tabs = h('div.os-tabs');
@@ -70,6 +72,8 @@ export function openServices() {
     const s = store.services;
     const direct = onTailnet(s);
     tabs.replaceChildren(
+      h('button.btn', { type: 'button', class: view === 'list' ? 'on' : '', title: 'One row per server', onclick: () => ((view = 'list'), render()) }, '📋 List'),
+      h('button.btn', { type: 'button', class: view === 'previews' ? 'on' : '', title: 'A live look at each page', onclick: () => ((view = 'previews'), render()) }, '🖼️ Previews'),
       ...(direct ? [] : (Object.keys(OS_LABEL) as Os[])).map((o) =>
         h('button.btn', { type: 'button', class: o === os ? 'on' : '', onclick: () => ((os = o), (copied = null), render()) }, OS_LABEL[o]),
       ),
@@ -77,6 +81,10 @@ export function openServices() {
     footer.firstElementChild!.textContent = direct
       ? 'Every link goes through the office, so the office sign-in still guards every page.'
       : 'Tunnels go through the office, so the office password still guards every page. Keep the terminal open while you look.';
+    if (view === 'previews') {
+      renderPreviews();
+      return;
+    }
     body.replaceChildren(
       h(
         'p.note',
@@ -172,6 +180,56 @@ export function openServices() {
         : h('p.note', {}, 'Replace ', h('code', {}, 'you@your-server'), ' with how you SSH to the office\'s machine. If the office runs on this computer, just click Open.'),
     );
   };
+
+  /** Live pages side by side: one iframe each, so this tab is the only place they exist. */
+  function renderPreviews() {
+    const s = store.services;
+    body.replaceChildren(
+      h(
+        'p.note',
+        { style: 'margin:0 0 12px' },
+        'Live pages, as the workers see them. A page that refuses embedding shows blank here — open it instead.',
+      ),
+    );
+    if (!s.items.length) {
+      body.append(
+        h(
+          'div.svc-empty',
+          {},
+          h('p', {}, 'Nothing running yet.'),
+          h('p.note', {}, 'When a worker starts a web server, its page shows up here live.'),
+        ),
+      );
+      return;
+    }
+    const grid = h('div.svc-grid');
+    for (const svc of s.items) {
+      const { who, color, branch } = describe(svc);
+      const url = serviceUrl(svc.port);
+      const open = h('a.btn', { href: url, target: '_blank', rel: 'noopener', title: `Open ${url}` }, 'Open ↗');
+      open.addEventListener('click', (e) => e.stopPropagation());
+      grid.append(
+        h(
+          'div.svc-card',
+          {},
+          h('iframe', {
+            src: url,
+            title: svc.title || svc.command,
+            loading: 'lazy',
+            sandbox: 'allow-scripts allow-same-origin allow-forms allow-popups',
+          }),
+          h(
+            'div.svc-cap',
+            {},
+            h('span.dot', { style: `background:${color}` }),
+            h('div.svc-main', {}, h('div.svc-title', {}, svc.title || svc.command), h('div.svc-meta', {}, [who, branch ? `🌿 ${branch}` : '', `:${svc.port}`].filter(Boolean).join(' · '))),
+            open,
+          ),
+        ),
+      );
+    }
+    body.append(grid);
+  }
 
   const unsubs = [store.on('services', render), store.on('workers', render)];
   // Keeps "up 5m" fresh.
