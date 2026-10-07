@@ -34,6 +34,7 @@ import type { installHud } from '../features/hud';
 import type { installJukebox } from '../features/jukebox';
 import type { installMeeting } from '../features/meeting';
 import type { installNeedsYou } from '../features/needsyou';
+import type { installOps } from '../features/ops';
 import type { installPeers } from '../features/peers';
 import type { installRooftop } from '../features/rooftop';
 import type { installSeating } from '../features/seating';
@@ -113,6 +114,7 @@ export interface Parts {
   actions: Made<typeof installWorkerActions>;
   waiting: Made<typeof installWaiting>;
   needsYou: Made<typeof installNeedsYou>;
+  ops: Made<typeof installOps>;
   meeting: Made<typeof installMeeting>;
   bookshelf: Made<typeof installBookshelf>;
   bar: Made<typeof installBar>;

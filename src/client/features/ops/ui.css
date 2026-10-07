@@ -1,0 +1,6 @@
+/* The 📊 Ops window (features/ops/ui.ts): rows reuse the services list, with state pills. */
+.ops-list .pill { flex: none; }
+.ops-list .svc-title { display: flex; align-items: center; gap: 8px; }
+.ops-wait { flex: none; font-size: 12px; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+.svc-wait { flex: none; font-size: 12px; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+.modal.ops .svc-list .btn { padding: 3px 10px; font-size: 13px; }

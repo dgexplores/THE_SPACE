@@ -20,6 +20,7 @@ import { signs } from '../desksigns';
 import type { Collider, DeskView, Interactable, Office, OfficeHandles } from '../types';
 import { PALETTE, floorTexture, paintPlanks, type Looks } from './materials';
 import { boards, clearOfStairs, lamps, lounge, machineMonitor, nightLights, plants, rugs, tv } from './room';
+import { opsTotem } from './ops-totem';
 import { plug, walls, type Door } from './shell';
 import { balcony } from './balcony';
 import { downstairs } from './ground';
@@ -55,6 +56,7 @@ function floorPlan() {
     // The lounge: the TV, the couch and its table and poufs, and the jukebox and the arcade in the corner.
     tv,
     machineMonitor,
+    opsTotem,
     lounge,
     jukebox,
     cabinet,
