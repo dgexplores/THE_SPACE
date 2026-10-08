@@ -14,8 +14,8 @@
 Sit **Claude Code**, **Codex**, **OpenCode**, **Grok**, **Muse**, **DeepSeek Harness** and **Cursor** workers at desks, watch each one's terminal on the laptop in front of it,
 and jump into any of them together. Every GitHub repo is a floor of the building.
 
-[![Release](https://img.shields.io/github/v/release/AgentSystemLabs/agent-office?style=flat-square&color=e8c547&label=release)](https://github.com/AgentSystemLabs/agent-office/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/AgentSystemLabs/agent-office/release.yml?style=flat-square&label=build)](https://github.com/AgentSystemLabs/agent-office/actions)
+[![Release](https://img.shields.io/github/v/release/dgexplores/THE_SPACE?style=flat-square&color=e8c547&label=release)](https://github.com/dgexplores/THE_SPACE/releases)
+[![Build](https://github.com/dgexplores/THE_SPACE/actions/workflows/release.yml/badge.svg)](https://github.com/dgexplores/THE_SPACE/actions/workflows/release.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square)](#run-locally)
 [![Built with TypeScript](https://img.shields.io/badge/built%20with-TypeScript-3178c6?style=flat-square)](https://www.typescriptlang.org)
@@ -27,6 +27,16 @@ curl -fsSL https://raw.githubusercontent.com/AgentSystemLabs/agent-office/main/i
 ```
 
 </div>
+
+## 60-second brief
+
+A shared 3D office for coding-agent teams: every GitHub repo is a floor, each agent (Claude Code, Codex, OpenCode, Grok, Muse, DeepSeek Harness, Cursor) sits at a desk with a live terminal, with GitHub issues/PRs on the walls. Stack: TypeScript, Vite client + Node server, SSH-tunnel deploys. Build/release badge above tracks the existing `release.yml` workflow.
+
+| | |
+|---|---|
+| Code | [`src/client/`](src/client) · [`src/server/`](src/server) · [`src/shared/`](src/shared) |
+| Docs | [`docs/features.md`](docs/features.md) · [`docs/how-it-works.md`](docs/how-it-works.md) · [`docs/code-layout.md`](docs/code-layout.md) · [`AGENTS.md`](AGENTS.md) (agent working rules) |
+| Ops | [`deploy/`](deploy) (AWS, Azure, Railway, Fly.io, Dokploy, Coolify) · [`install.sh`](install.sh) · [`tests/`](tests) |
 
 ---
 
